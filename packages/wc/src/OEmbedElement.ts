@@ -296,26 +296,38 @@ export class OEmbedElement extends LitElement {
     const embedUrl = getLoomEmbedUrlFromId(embedId);
 
     const width = this.getAttribute('width') || '470';
-    const height = this.getAttribute('height') || '404';
+    const widthWithUnits = this.width.match(/(px|%)/)
+      ? this.width
+      : `${this.width}px`;
+    const height = this.getAttribute('height') || '470';
+    const heightWithUnits = this.height.match(/(px|%)/)
+      ? this.height
+      : `${this.height}px`;
+
     return html`
-      <iframe
-        width="${width}"
-        height="${height}"
-        src="${embedUrl}"
-        frameborder=${ifDefined(
-          this.frameborder ? this.frameborder : undefined
-        )}
-        allowfullscreen=${ifDefined(
-          this.allowfullscreen === '' ||
-            this.allowfullscreen == 'true' ||
-            this.allowfullscreen === 'true' ||
-            this.allowfullscreen === true ||
-            this.allowfullscreen === '1'
-            ? true
-            : undefined
-        )}
-      ></iframe>
-      <slot></slot>
+      <div
+        style="width:${widthWithUnits};height:${heightWithUnits};overflow:hidden;"
+      >
+        <iframe
+          width="${width}"
+          height="${height}"
+          src="${embedUrl}"
+          frameborder=${ifDefined(
+            this.frameborder ? this.frameborder : undefined
+          )}
+          allowfullscreen=${ifDefined(
+            this.allowfullscreen === '' ||
+              this.allowfullscreen == 'true' ||
+              this.allowfullscreen === 'true' ||
+              this.allowfullscreen === true ||
+              this.allowfullscreen === '1'
+              ? true
+              : undefined
+          )}
+          style="width:100%;height:100%;left:0px;top:0px;overflow:hidden"
+        ></iframe>
+        <slot></slot>
+      </div>
     `;
   }
 }
