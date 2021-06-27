@@ -30,7 +30,6 @@
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.3",
     "@mdx-js/react": "^1.6.22",
     "clsx": "^1.1.1",
-    "docusaurus-plugin-typedoc": "^0.15.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -41,10 +40,7 @@
     "@types/react": "^17.0.14",
     "@types/react-helmet": "^6.1.2",
     "@types/react-router-dom": "^5.1.8",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "typedoc": "^0.21.4",
-    "typedoc-neo-theme": "^1.1.1",
-    "typedoc-plugin-markdown": "^3.10.3"
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "browserslist": {
     "production": [
