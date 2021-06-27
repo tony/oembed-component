@@ -33,7 +33,8 @@
     "test": "tsdx test",
     "lint": "eslint src",
     "ncu": "ncu",
-    "update": "ncu"
+    "update": "ncu",
+    "extract-api": "yarn build && api-extractor run"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",

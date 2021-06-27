@@ -7,7 +7,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "TYPEDOC_WATCH=true docusaurus start --port 8063",
-    "prebuild": "npm run clean && yarn workspace @social-embed/lib build && npm run docs:oembed",
+    "prebuild": "npm run clean && yarn workspace @social-embed/lib build && npm run docs:oembed && yarn api",
     "build": "TYPEDOC_WATCH=false docusaurus build --out-dir dist --no-minify",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -22,13 +22,17 @@
     "lint": "echo 'NOOP'",
     "test": "echo 'NOOP'",
     "ncu": "ncu",
-    "update": "ncu"
+    "update": "ncu",
+    "api:wc": "yarn workspace @social-embed/wc run extract-api; yarn run api-documenter markdown --input-folder ../wc/temp --output docs/wc/api",
+    "api:lib": "yarn workspace @social-embed/lib run extract-api; yarn run api-documenter markdown --input-folder ../lib/temp --output docs/lib/api",
+    "api": "yarn run api:wc; yarn run api:lib"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.3",
     "@docusaurus/preset-classic": "2.0.0-beta.3",
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.3",
     "@mdx-js/react": "^1.6.22",
+    "@microsoft/api-documenter": "^7.13.24",
     "clsx": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
