@@ -16,43 +16,6 @@ module.exports = {
   plugins: [
     path.resolve(__dirname, 'plugins', 'more-mdx-paths'),
     '@docusaurus/theme-live-codeblock',
-    [
-      'docusaurus-plugin-typedoc',
-
-      // Plugin / TypeDoc options
-      {
-        id: 'lib-api',
-        out: `lib/api`,
-        docsRoot: 'docs',
-        watch: process.env.TYPEDOC_WATCH,
-        entryPoints: [`../lib/src/index.ts`],
-        allReflectionsHaveOwnDocument: false,
-        readme: 'none',
-        tsconfig: require.resolve(`./tsconfig.json`),
-        sidebar: {
-          sidebarFile: 'typedoc-sidebar-lib.js',
-        },
-      },
-    ],
-    [
-      'docusaurus-plugin-typedoc',
-
-      // Plugin / TypeDoc options
-      {
-        id: 'wc-api',
-        out: `wc/api`,
-        docsRoot: 'docs',
-        readme: 'none',
-        tsconfig: require.resolve(`./tsconfig.json`),
-        watch: process.env.TYPEDOC_WATCH,
-        entryPoints: [`../wc/index.ts`],
-        excludeExternals: true,
-        allReflectionsHaveOwnDocument: false,
-        sidebar: {
-          sidebarFile: 'typedoc-sidebar-wc.js',
-        },
-      },
-    ],
   ],
   themeConfig: {
     navbar: {
@@ -86,20 +49,20 @@ module.exports = {
             },
           ],
         },
-        {
-          label: 'API Reference',
-          position: 'left',
-          items: [
-            {
-              href: '/docs/lib/api',
-              label: 'library (lib)',
-            },
-            {
-              href: '/docs/wc/api',
-              label: 'web component (wc)',
-            },
-          ],
-        },
+        // {
+        //   label: 'API Reference',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       href: '/docs/lib/api',
+        //       label: 'library (lib)',
+        //     },
+        //     {
+        //       href: '/docs/wc/api',
+        //       label: 'web component (wc)',
+        //     },
+        //   ],
+        // },
         {
           to: '/docs/news/',
           label: 'Release notes',

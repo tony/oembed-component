@@ -23,7 +23,8 @@
     "test": "wtr test/o-embed_test.ts --puppeteer --node-resolve",
     "test:watch": "yarn test --watch",
     "checksize": "rollup -c ; cat dist/o-embed.bundled.js | gzip -9 | wc -c ; rm dist/o-embed.bundled.js",
-    "wtr": "wtr"
+    "wtr": "wtr",
+    "extract-api": "yarn build && api-extractor run"
   },
   "keywords": [
     "web-component",
